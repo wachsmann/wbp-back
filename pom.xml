@@ -39,10 +39,15 @@
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <enforcer.skip>true</enforcer.skip>
+
+
   </properties>
 
   <dependencyManagement>
     <dependencies>
+    
       <!-- Internal dependencies -->
       <dependency>
         <groupId>org.optaweb.vehiclerouting</groupId>
@@ -75,6 +80,7 @@
         <artifactId>jjwt</artifactId>
         <version>0.7.0</version>
       </dependency>
+  
     </dependencies>
 
   </dependencyManagement>
@@ -84,7 +90,9 @@
 
 
     <!-- Dependencies not managed by kie-parent and version overrides -->
+<!-- https://mvnrepository.com/artifact/org.kie/kie-parent -->
 
+     
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-spatial</artifactId>
@@ -105,8 +113,6 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-security</artifactId>
     </dependency>
-
-
     <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
@@ -161,6 +167,7 @@
       <groupId>io.jsonwebtoken</groupId>
       <artifactId>jjwt</artifactId>
     </dependency>
+   
     <dependency>
       <groupId>com.graphhopper</groupId>
       <artifactId>graphhopper-reader-osm</artifactId>
@@ -170,6 +177,12 @@
 
   <build>
     <plugins>
+      <plugin>
+        <groupId>com.heroku.sdk</groupId>
+        <artifactId>heroku-maven-plugin</artifactId>
+        <version>3.0.3</version>
+      </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -337,6 +350,10 @@
       </activation>
       <properties>
         <checkstyle.failOnViolation>true</checkstyle.failOnViolation>
+
+        <enforcer.skip>true</enforcer.skip>
+
+
       </properties>
     </profile>
 
