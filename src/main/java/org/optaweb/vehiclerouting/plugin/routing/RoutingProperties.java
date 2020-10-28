@@ -45,8 +45,9 @@ class RoutingProperties {
     /**
      * URL of an .osm.pbf file that will be downloaded in case the file doesn't exist on the file system.
      */
-    private String osmDownloadUrl;
-
+    private String osmDownloadUrl="http://download.geofabrik.de/south-america/brazil/centro-oeste-latest.osm.pbf";
+    
+ 
     /**
      * Routing engine providing distances and paths.
      */
