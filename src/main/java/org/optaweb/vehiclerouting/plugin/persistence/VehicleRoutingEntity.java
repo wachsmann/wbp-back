@@ -29,7 +29,7 @@ import org.optaweb.vehiclerouting.plugin.persistence.planner.PlannerEntity;
  * Persistable vehicle.
  */
 @Entity
-public class VehicleEntity {
+public class VehicleRoutingEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -39,11 +39,11 @@ public class VehicleEntity {
     @ManyToOne(targetEntity=PlannerEntity.class)
     private PlannerEntity planner;
     
-    protected VehicleEntity() {
+    protected VehicleRoutingEntity() {
         // for JPA
     }
 
-    public VehicleEntity(long id, String name, int capacity, PlannerEntity planner) {
+    public VehicleRoutingEntity(long id, String name, int capacity, PlannerEntity planner) {
         this.id = id;
         this.name = name;
         this.capacity = capacity;

@@ -50,7 +50,8 @@ public class VehicleRepositoryImpl implements VehicleRepository {
 
     @Override
     public Vehicle createVehicle(final VehicleData vehicleData) {
-        final VehicleEntity vehicleEntity = repository.save(new VehicleEntity(0, vehicleData.name(), vehicleData.capacity(),toEntity(vehicleData.planner())));
+        final VehicleEntity vehicleEntity = new VehicleEntity(0, vehicleData.name(), vehicleData.capacity(),toEntity(vehicleData.planner()));
+        repository.save(new VehicleEntity(0, vehicleData.name(), vehicleData.capacity(),toEntity(vehicleData.planner())));
         return toDomain(vehicleEntity);
     }
 

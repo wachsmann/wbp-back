@@ -32,10 +32,10 @@ import org.optaweb.vehiclerouting.plugin.persistence.planner.PlannerEntity;
 
 
 /**
- * Persistable location.
+ * Persistable point.
  */
 @Entity
-public class LocationEntity {
+public class PointEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -51,11 +51,11 @@ public class LocationEntity {
     @ManyToOne(targetEntity=PlannerEntity.class)
     private PlannerEntity planner;
 
-    protected LocationEntity() {
+    protected PointEntity() {
         // for JPA
     }
 
-    LocationEntity(long id, BigDecimal latitude, BigDecimal longitude, String description,int demand) {
+    PointEntity(long id, BigDecimal latitude, BigDecimal longitude, String description,int demand) {
         this.id = id;
         this.latitude = Objects.requireNonNull(latitude);
         this.longitude = Objects.requireNonNull(longitude);

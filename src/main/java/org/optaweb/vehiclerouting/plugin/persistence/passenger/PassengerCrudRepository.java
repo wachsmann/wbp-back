@@ -22,6 +22,6 @@ import org.springframework.data.repository.CrudRepository;
 /**
  * Passenger repository.
  */
-interface PassengerCrudRepository extends CrudRepository<PassengerEntity, Long> {
+public interface PassengerCrudRepository extends CrudRepository<PassengerEntity, Long> {
     
 }

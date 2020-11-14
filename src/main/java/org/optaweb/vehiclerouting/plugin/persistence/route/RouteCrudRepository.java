@@ -17,10 +17,12 @@
 package org.optaweb.vehiclerouting.plugin.persistence.route;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  * Routing repository.
  */
-interface RouteCrudRepository extends CrudRepository<RouteEntity, Long> {
+@Repository
+public interface RouteCrudRepository extends CrudRepository<RouteEntity, Long> {
 
 }

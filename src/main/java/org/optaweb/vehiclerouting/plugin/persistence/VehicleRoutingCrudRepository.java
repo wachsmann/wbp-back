@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 Red Hat, Inc. and/or its affiliates.
+ * Copyright 2020 Red Hat, Inc. and/or its affiliates.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,16 +14,13 @@
  * limitations under the License.
  */
 
-package org.optaweb.vehiclerouting.plugin.persistence.routing;
+package org.optaweb.vehiclerouting.plugin.persistence;
 
-import java.util.List;
-
-import org.optaweb.vehiclerouting.plugin.persistence.planner.PlannerEntity;
 import org.springframework.data.repository.CrudRepository;
 
 /**
- * Route repository.
+ * Vehicle repository.
  */
-public interface RoutingCrudRepository extends CrudRepository<RoutingEntity, Long> {
-    List<RoutingEntity> findByPlanner(PlannerEntity planner);
+public interface VehicleRoutingCrudRepository extends CrudRepository<VehicleRoutingEntity, Long> {
+
 }

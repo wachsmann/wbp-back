@@ -11,11 +11,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.validator.constraints.Length;
 import org.optaweb.vehiclerouting.domain.Location;
 import org.optaweb.vehiclerouting.plugin.persistence.passenger.PassengerEntity;
 
-import org.optaweb.vehiclerouting.plugin.persistence.LocationEntity;
+import org.optaweb.vehiclerouting.plugin.persistence.PointEntity;
 import org.optaweb.vehiclerouting.plugin.persistence.VehicleEntity;
+import org.optaweb.vehiclerouting.plugin.persistence.VehicleRoutingEntity;
 import org.optaweb.vehiclerouting.plugin.persistence.planner.PlannerEntity;
 
 import javax.persistence.Id;
@@ -30,33 +32,21 @@ public class RouteEntity {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
+    public Long getId() {return this.id;}
+    @Length(max = 1000)
+    public String track;
+    public String getTrack() {return this.track;}
+    public void setTrack(String track) {this.track = track;}
 
-    @ManyToMany(targetEntity=LocationEntity.class, fetch=FetchType.EAGER)
+
+    @ManyToMany(targetEntity=PointEntity.class, fetch=FetchType.EAGER)
     @JoinColumn(name="visit_id")
-    private List<LocationEntity> visits;
-    public List<LocationEntity> getVisits() {return this.visits;}
-    public void setVisits(List<LocationEntity> visits) {this.visits = visits;}
+    private List<PointEntity> visits;
+    public List<PointEntity> getVisits() {return this.visits;}
+    public void setVisits(List<PointEntity> visits) {this.visits = visits;}
     
-    @ManyToOne(targetEntity=VehicleEntity.class)
-    private VehicleEntity vehicle;
-    
-    /*
-    @ManyToMany(targetEntity=LocationEntity.class, fetch=FetchType.EAGER)
-    @JoinColumn(name="passenger_id")
-    private List<PassengerEntity> passengers;
-    public List<PassengerEntity> getPassengers() {return this.passengers;}
-    public void setPassengers(List<PassengerEntity> passengers) {this.passengers = passengers;}
-    */
-    /*
-    @OneToMany(targetEntity=Route.class)
-    private Set<Route> routes;
-    */
-
-
-    private String generalDistanceLimit;
-    public String getGeneralDistanceLimit() {return this.generalDistanceLimit;}
-    public void setGeneralDistanceLimit(String generalDistanceLimit) {this.generalDistanceLimit = generalDistanceLimit;}
-
-
+    @ManyToOne(targetEntity=VehicleRoutingEntity.class,fetch = FetchType.EAGER)
+    public VehicleRoutingEntity vehicle;
+   
       
 }

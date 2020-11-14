@@ -14,16 +14,13 @@
  * limitations under the License.
  */
 
-package org.optaweb.vehiclerouting.plugin.persistence.routing;
+package org.optaweb.vehiclerouting.plugin.persistence;
 
-import java.util.List;
-
-import org.optaweb.vehiclerouting.plugin.persistence.planner.PlannerEntity;
 import org.springframework.data.repository.CrudRepository;
 
 /**
- * Route repository.
+ * Location repository.
  */
-public interface RoutingCrudRepository extends CrudRepository<RoutingEntity, Long> {
-    List<RoutingEntity> findByPlanner(PlannerEntity planner);
+public interface PointCrudRepository extends CrudRepository<PointEntity, Long> {
+
 }
