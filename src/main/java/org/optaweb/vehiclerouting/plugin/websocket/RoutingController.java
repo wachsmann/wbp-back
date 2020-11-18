@@ -74,11 +74,12 @@ public class RoutingController {
 		return ResponseEntity.ok(null);
 	}
 	
-	@PutMapping("/routing{id}")
+	@PutMapping("/routing/{id}")
 	public ResponseEntity update(@PathVariable("id") long id, @RequestBody RoutingEntity routing) throws Exception {
 	
 		return routingRepository.findById(id)
            .map(record -> {
+			record.setName(routing.name);   
 			record.routes.forEach(route -> {
 				RouteEntity routeEntity = routeRepository.findById(route.getId()).get();
 				routeEntity.track = route.track;

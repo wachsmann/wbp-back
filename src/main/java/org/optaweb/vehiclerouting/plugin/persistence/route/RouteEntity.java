@@ -33,7 +33,7 @@ public class RouteEntity {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
     public Long getId() {return this.id;}
-    @Length(max = 1000)
+    @Length(max = 10000)
     public String track;
     public String getTrack() {return this.track;}
     public void setTrack(String track) {this.track = track;}
