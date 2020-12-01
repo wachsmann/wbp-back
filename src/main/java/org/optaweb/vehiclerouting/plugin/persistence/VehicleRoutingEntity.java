@@ -35,6 +35,8 @@ public class VehicleRoutingEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
+    private String prefix;
+    private String plate;
     private int capacity;
     @ManyToOne(targetEntity=PlannerEntity.class)
     private PlannerEntity planner;
@@ -43,9 +45,10 @@ public class VehicleRoutingEntity {
         // for JPA
     }
 
-    public VehicleRoutingEntity(long id, String name, int capacity, PlannerEntity planner) {
+    public VehicleRoutingEntity(long id, String prefix,String plate, int capacity, PlannerEntity planner) {
         this.id = id;
-        this.name = name;
+        this.prefix = prefix;
+        this.plate = plate;
         this.capacity = capacity;
         this.planner = planner;
     }
@@ -55,8 +58,12 @@ public class VehicleRoutingEntity {
         return id;
     }
 
-    public String getName() {return name;}
-    public void setName(String name) {this.name = name;}
+    public String getPrefix() {return prefix;}
+    public void setPrefix(String prefix) {this.prefix = prefix;}
+
+
+    public String getPlate() {return plate;}
+    public void setPlate(String plate) {this.plate = plate;}
 
     public int getCapacity() {return capacity;}
     public void setCapacity(int capacity) {this.capacity = capacity;}

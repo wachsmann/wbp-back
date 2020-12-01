@@ -40,9 +40,9 @@ public class RoutingEntity {
     public void setName(String name) {this.name = name;}
 
 
-    public String distance;
-    public String getDistance() {return this.distance;}
-    public void setDistance(String distance) {this.distance = distance;}
+    public String generalTime;
+    public String getGeneralTime() {return this.generalTime;}
+    public void setGeneralTime(String generalTime) {this.generalTime = generalTime;}
 
     @OneToMany(targetEntity=RouteEntity.class, fetch=FetchType.EAGER)
     public Set<RouteEntity> routes;

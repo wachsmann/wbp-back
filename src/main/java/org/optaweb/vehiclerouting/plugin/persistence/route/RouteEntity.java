@@ -33,6 +33,9 @@ public class RouteEntity {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
     public Long getId() {return this.id;}
+    public String name;
+    public String getName() {return this.name;}
+    public void setName(String name) {this.name = name;}
     @Length(max = 10000)
     public String track;
     public String getTrack() {return this.track;}
