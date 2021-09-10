@@ -240,19 +240,13 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
-          <profiles>
-            <profile>local</profile>
-          </profiles>
+         <mainClass>org.optaweb.vehiclerouting.OptaWebVehicleRoutingApplication</mainClass>
         </configuration>
         <executions>
           <execution>
-            <id>repackage-fat-jar</id>
             <goals>
               <goal>repackage</goal>
             </goals>
-            <configuration>
-              <classifier>exec</classifier>
-            </configuration>
           </execution>
         </executions>
       </plugin>

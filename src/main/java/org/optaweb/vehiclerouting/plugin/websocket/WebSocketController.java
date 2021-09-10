@@ -79,8 +79,8 @@ class WebSocketController {
      * Subscribe for updates of the VRP route.
      * @return route message
      */
-    @SubscribeMapping("/route")
-    PortableRoutingPlan subscribeToRouteTopic() {
+    @SubscribeMapping("/route/{routeId}")
+    PortableRoutingPlan subscribeToRouteTopic(@DestinationVariable String routeId) {
         RoutingPlan routingPlan = routeListener.getBestRoutingPlan();
         return PortableRoutingPlanFactory.fromRoutingPlan(routingPlan);
     }
