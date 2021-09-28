@@ -109,7 +109,10 @@ class WebSocketController {
         }
         request.getVehicles().forEach(vehicle -> vehicleService.createVehicle(request.getPlannerId(),vehicle.getCapacity(),vehicle.getName()));
     }
-
+    @MessageMapping("/stop")
+    void stop(){
+        locationService.removeAll();
+    }
     @MessageMapping("/clear")
     void clear() {
         locationService.removeAll();
